@@ -22,3 +22,15 @@ class DatosPedidos extends conexionPDOWeb
     }
 
 }
+
+class DatosPedidosSQL extends conexionPDOWeb
+{
+    public $resultado;
+    public $consulta;
+    function obtenerdatos(){
+        parent::conectar();
+        $this->resultado=parent::obtiene_consulta($this->consulta);
+        parent::desconectar();
+    }
+
+}

@@ -1,5 +1,5 @@
 <?php
-require_once ('../partials/partial01.html');
+require_once('../partials/cabecerapedidosIni.html');
 
 ?>
 
@@ -32,8 +32,6 @@ require_once ('../partials/partial01.html');
             <tbody>
 
 
-
-
 <?php
 require_once ('../funciones/funciones.php');
 require_once ('../config/config.php');
@@ -45,11 +43,10 @@ require_once ('../model/datospedidos.php');
 $datos=new DatosPedidos();
 $datos->ficheroSQL="../sql/" ."prueba.sql";
 $datos->obtenerdatos();
-
 foreach ($datos->resultado as $registro){
     //    $tamanyo=number_format($registro['size_fs']);
     echo "<tr>";
-    echo "<td>" . $registro['id_pedido'] . "</td>";
+    ?><td><a href=<?php  echo "'./datospedidosdetalle.php?idpedido=" . $registro['id_pedido'] . "'>". $registro['id_pedido'] . "</a></td>";
     echo "<td>" . $registro['fecha'] . "</td>";
     echo "<td>" . $registro['referencia'] . "</td>";
     echo "<td>" . $registro['metodo_pago'] . "</td>";
@@ -74,6 +71,6 @@ foreach ($datos->resultado as $registro){
 
 
 <?php
-require_once ('../partials/partial01fin.html');
+require_once('../partials/cabecerapedidosFin.html');
 
 ?>

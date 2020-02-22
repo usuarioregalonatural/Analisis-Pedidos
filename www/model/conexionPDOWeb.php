@@ -22,8 +22,9 @@ class ConexionPDOWeb
     public function conectar(){
         try {
 //            $dsn = "mysql:host=". $this->server .";dbname=".$this->db . ";port=51000";
-            $dsn = "mysql:host=". $this->server .";dbname=".$this->db ;
+            $dsn = "mysql:host=". $this->server .";dbname=".$this->db . ";charset=utf8mb4" ;
             $this->dbh = new PDO($dsn, $this->usuario, $this->clave);
+
             //    echo "Conectado a Web!!!";
         } catch (PDOException $e){
             echo "Error conectando a PDOWeb -> ";
