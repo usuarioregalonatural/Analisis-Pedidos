@@ -23,6 +23,7 @@
 </head>
 
 <body id="page-top">
+Hola qwue pasa
 <?php
 require_once ('../funciones/funciones.php');
 require_once ('../config/config.php');
