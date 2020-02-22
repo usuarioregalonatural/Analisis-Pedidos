@@ -6,5 +6,6 @@ metodo_pago,
 nombre_cliente,
 precio_total_pedido,
 provincia_cliente,
-telefono_cliente
+telefono_cliente,
+estado_pedido
 from Cabeceras_Pedidos

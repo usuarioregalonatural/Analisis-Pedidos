@@ -1,4 +1,5 @@
-SELECT 
+SELECT
+estado_pedido,
 fecha,
 id_pedido,
 referencia,
