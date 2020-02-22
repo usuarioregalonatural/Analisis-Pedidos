@@ -15,7 +15,7 @@ class ConexionPDOWeb
 //    private $server ='test.regalonatural.com:51000'; // Deasarrollo
     private $server ='regalonatural.es:7071'; // Produccion
 
-    private $db = 'regalonatural';
+    private $db = 'RN_AnalisisPedidos';
     private $dbh;
     public $datos;
 
