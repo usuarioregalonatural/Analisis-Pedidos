@@ -7,9 +7,10 @@ metodo_pago,
 concat(nombre_cliente, ' ', apellidos_cliente),
 telefono_cliente,
 provincia_cliente,
-total_pedido
+total_pedido,
+estado_pedido
 FROM RN_AnalisisPedidos.RAW_Pedidos
-group by 1,2,3,4,5,6,7,8
+group by 1,2,3,4,5,6,7,8,9
 order by fecha desc
 ;
 
