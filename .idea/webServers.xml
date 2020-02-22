@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="64361161-9206-43ab-9ac5-91afb9b01983" name="Pedidos" url="http://localhost">
+      <webServer id="64361161-9206-43ab-9ac5-91afb9b01983" name="Pedidos" url="http://localhost/Proyectos/analisis-pedidos/www/">
         <fileTransfer port="0" accessType="LOCAL" />
       </webServer>
     </option>

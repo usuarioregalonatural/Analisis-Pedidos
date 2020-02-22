@@ -16,7 +16,8 @@ select
     detalle.product_name,''',',
     detalle.unit_price_tax_incl,',',
     detalle.product_quantity,',',
-    detalle.total_price_tax_incl,
+    detalle.total_price_tax_incl,',',
+    pedidos.current_state,
 	');') as ''
 from regalonatural.ps_orders pedidos
 left outer join regalonatural.ps_customer clientes

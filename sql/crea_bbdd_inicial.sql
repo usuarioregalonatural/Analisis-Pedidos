@@ -16,7 +16,8 @@ referencia_producto varchar(64),
 descripcion_producto varchar(255),
 precio_unitario_producto decimal(20,6),
 cantidad_producto int(10),
-precio_total_pedido decimal(20,6)
+precio_total_pedido decimal(20,6),
+estado_pedido int(10)
 );
 
 
@@ -28,7 +29,8 @@ metodo_pago varchar(255),
 nombre_cliente varchar(255),
 telefono_cliente varchar(32),
 provincia_cliente varchar(64),
-precio_total_pedido decimal(20,6)
+precio_total_pedido decimal(20,6),
+estado_pedido int(10)
 );
 
 create table RN_AnalisisPedidos.Detalle_Pedidos (
