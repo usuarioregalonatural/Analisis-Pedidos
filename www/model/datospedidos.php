@@ -8,7 +8,7 @@
 require_once('conexionPDOWeb.php');
 require_once('../funciones/funciones.php');
 
-class datospedidos extends conexionPDOWeb
+class DatosPedidos extends conexionPDOWeb
 {
     public $resultado;
     public $ficheroSQL;
