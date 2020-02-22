@@ -24,6 +24,7 @@ require_once ('../model/datospedidos.php');
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
+                            <th>Estado</th>
                             <th>Nº Pedido</th>
                             <th>Fecha Pedido</th>
                             <th>Referencia</th>
@@ -45,6 +46,38 @@ require_once ('../model/datospedidos.php');
                             $datos->consulta=$sentenciafinal;
                             $datos->obtenerdatos();
                             foreach ($datos->resultado as $registro) {
+                                $n_estado_pedido=$registro['estado_pedido'];
+                                switch ($n_estado_pedido){
+                                    case 2:
+                                        $estado_pedido="Pago Aceptado";
+                                        echo "<td style='background-color: #17d133;color: black;font-size: small'>" . $estado_pedido . "</td>"; // Pago Aceptado
+                                        break;
+                                    case 3:
+                                        $estado_pedido="En preparación";
+                                        echo "<td style='background-color: #ffce2e;color: black;font-size: small'>" . $estado_pedido . "</td>"; // En Preparación
+                                        break;
+                                    case 4:
+                                        $estado_pedido="Enviado";
+                                        echo "<td style='background-color: #f4e6f7;color: black;font-size: small'>" . $estado_pedido . "</td>"; // Enviado
+                                        break;
+                                    case 5:
+                                        $estado_pedido="Entregado";
+                                        echo "<td style='background-color: #d8f0bd;color: black;font-size: small'>" . $estado_pedido . "</td>"; // Entregado
+                                        break;
+                                    case 6:
+                                        $estado_pedido="Cancelado";
+                                        echo "<td style='background-color: #f57d62;color: black;font-size: small'>" . $estado_pedido . "</td>"; // Cancelado
+                                        break;
+                                    case 8:
+                                        $estado_pedido="Error Pago";
+                                        echo "<td style='background-color: #ffe600;color: black;font-size: small'>" . $estado_pedido . "</td>"; // Error en Pago
+                                        break;
+                                    case 10:
+                                        $estado_pedido="Pdte. Transferencia";
+                                        echo "<td style='background-color: #9ae4fc;color: black;font-size: small'>" . $estado_pedido . "</td>"; // Pdte. Transf.
+                                        break;
+
+                                }
                                 echo "<td>" . $registro['id_pedido'] . "</td>";
                                 echo "<td>" . $registro['fecha'] . "</td>";
                                 echo "<td>" . $registro['referencia'] . "</td>";
