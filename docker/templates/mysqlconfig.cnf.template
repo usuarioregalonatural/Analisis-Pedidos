@@ -1,0 +1,11 @@
+[client]
+#user = VAR_WEB_USER
+user =  root
+#password = VAR_PASS_USER
+password = vmsn2004
+host = localhost
+
+[mysqld]
+secure-file-priv = ""
+
+
