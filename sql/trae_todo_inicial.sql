@@ -2,7 +2,7 @@ select
    concat(
    ' insert into RN_AnalisisPedidos.RAW_Pedidos values (',
    '''',
-    pedidos.invoice_date,''',',
+    pedidos.date_upd,''',',
         pedidos.id_order,',''',
     pedidos.reference,''',',
     pedidos.total_paid,',''',
@@ -28,6 +28,6 @@ inner join regalonatural.ps_state provincia
 on direccion.id_state=provincia.id_state
 left outer join regalonatural.ps_order_detail detalle
 on pedidos.id_order=detalle.id_order
-where pedidos.valid=1
+where direccion.deleted=0
 order by pedidos.id_order DESC;
 

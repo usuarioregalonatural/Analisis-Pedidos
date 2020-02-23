@@ -9,4 +9,4 @@ precio_total_pedido,
 provincia_cliente,
 telefono_cliente
 from Cabeceras_Pedidos
-order by fecha DESC;
+order by id_pedido DESC;
