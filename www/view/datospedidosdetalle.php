@@ -139,8 +139,12 @@ require_once ('../model/datospedidos.php');
 
 </div>
 
-
+ 
 <?php
+echo "<script> window.onload=function() {
+        window.print();
+    };</script>";
+
 require_once('../partials/cabecerapedidosFin.html');
 
 ?>
