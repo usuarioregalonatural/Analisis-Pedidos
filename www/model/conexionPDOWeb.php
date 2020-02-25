@@ -13,7 +13,7 @@ class ConexionPDOWeb
     private $usuario = 'root';
     private $clave = 'vmsn2004';
 //    private $server ='test.regalonatural.com:51000'; // Deasarrollo
-    private $server ='regalonatural.es:7071'; // Produccion
+    private $server ='regalonatural.com:7071'; // Produccion
 
     private $db = 'RN_AnalisisPedidos';
     private $dbh;

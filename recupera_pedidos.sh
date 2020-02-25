@@ -1,4 +1,5 @@
-source ./conf/configuracion.conf
+source /home/MTTO-TIENDA/Analisis-Pedidos/conf/configuracion.conf
+echo "Lanzando pedido...> " > /home/MTTO-TIENDA/Analisis-Pedidos/logs/log_${ID_UNICO_PROCESO}
 
 
 function activa_inserciones_fechas_vacias (){
@@ -30,14 +31,22 @@ function desactiva_inserciones_fechas_vacias (){
 
 echo "Contenedor BBDD ORIGEN: ${contenedor_mysql_origen}"
 
-docker exec -i ${contenedor_mysql_origen} /usr/bin/mysql -u root --password=vmsn2004 regalonatural --batch --raw < ./sql/trae_todo_inicial.sql > ./datos/extraccion.txt
-docker exec -i ${contenedor_mysql} /usr/bin/mysql -u root --password=vmsn2004 RN_AnalisisPedidos --batch --raw < ./sql/borra_raw.sql
+echo "Trae todo inicial...> " >> /home/MTTO-TIENDA/Analisis-Pedidos/logs/log_${ID_UNICO_PROCESO}
+
+docker exec -i ${contenedor_mysql_origen} /usr/bin/mysql -u root --password=vmsn2004 regalonatural --batch --raw < ${ruta_app}//sql/trae_todo_inicial.sql > ${ruta_app}/datos/extraccion.txt
+echo "Borra RAW.> " >> /home/MTTO-TIENDA/Analisis-Pedidos/logs/log_${ID_UNICO_PROCESO}
+docker exec -i ${contenedor_mysql} /usr/bin/mysql -u root --password=vmsn2004 RN_AnalisisPedidos --batch --raw < ${ruta_app}/sql/borra_raw.sql
 
 activa_inserciones_fechas_vacias
 
-docker exec -i ${contenedor_mysql} /usr/bin/mysql -u root --password=vmsn2004 RN_AnalisisPedidos --batch --raw < ./datos/extraccion.txt
-docker exec -i ${contenedor_mysql} /usr/bin/mysql -u root --password=vmsn2004 RN_AnalisisPedidos --batch --raw < ./sql/carga_cabeceras.sql
-docker exec -i ${contenedor_mysql} /usr/bin/mysql -u root --password=vmsn2004 RN_AnalisisPedidos --batch --raw < ./sql/carga_detalle.sql
+echo "Extraccion datos origen... " >> /home/MTTO-TIENDA/Analisis-Pedidos/logs/log_${ID_UNICO_PROCESO}
+docker exec -i ${contenedor_mysql} /usr/bin/mysql -u root --password=vmsn2004 RN_AnalisisPedidos --batch --raw < ${ruta_app}/datos/extraccion.txt
+echo "Carga Cabeceras... " >> /home/MTTO-TIENDA/Analisis-Pedidos/logs/log_${ID_UNICO_PROCESO}
+docker exec -i ${contenedor_mysql} /usr/bin/mysql -u root --password=vmsn2004 RN_AnalisisPedidos --batch --raw < ${ruta_app}/sql/carga_cabeceras.sql
+echo "Carga Detalle...> " >> /home/MTTO-TIENDA/Analisis-Pedidos/logs/log_${ID_UNICO_PROCESO}
+docker exec -i ${contenedor_mysql} /usr/bin/mysql -u root --password=vmsn2004 RN_AnalisisPedidos --batch --raw < ${ruta_app}/sql/carga_detalle.sql
 
 desactiva_inserciones_fechas_vacias
+
+echo "FIN!!! " >> /home/MTTO-TIENDA/Analisis-Pedidos/logs/log_${ID_UNICO_PROCESO}
 
